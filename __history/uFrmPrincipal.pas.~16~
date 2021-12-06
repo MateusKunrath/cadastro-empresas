@@ -1,0 +1,56 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
+  Vcl.ComCtrls;
+
+type
+  TfmPrincipal = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    btnBancoDados: TSpeedButton;
+    btnEmpresas: TSpeedButton;
+    StatusBar1: TStatusBar;
+    procedure btnBancoDadosClick(Sender: TObject);
+    procedure btnEmpresasClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fmPrincipal: TfmPrincipal;
+
+implementation
+
+uses
+  uViewBancoDados, uViewEmpresas;
+
+{$R *.dfm}
+
+procedure TfmPrincipal.btnBancoDadosClick(Sender: TObject);
+var
+  fmBancoDados: TfmBancoDados;
+begin
+  fmBancoDados := TfmBancoDados.Create;
+  try
+    fmBancoDados.ShowModal;
+  finally
+    fmBancoDados.Release;
+  end;
+end;
+
+procedure TfmPrincipal.btnEmpresasClick(Sender: TObject);
+begin
+  if fmEmpresas = nil then
+    fmEmpresas := TfmEmpresas.Create
+  else
+    fmEmpresas.BringToFront;
+end;
+
+end.

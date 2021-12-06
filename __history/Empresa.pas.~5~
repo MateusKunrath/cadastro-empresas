@@ -1,0 +1,80 @@
+unit Empresa;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  TEmpresa = class
+  private
+    FNome: string;
+    FCNPJ: string;
+    FInscricao: string;
+    FTelefoneComercial: string;
+    FTelefoneCelular: string;
+    FEmail: string;
+    procedure SetCNPJ(const Value: string);
+    procedure SetNome(const Value: string);
+    procedure SetEmail(const Value: string);
+    procedure SetInscricao(const Value: string);
+    procedure SetTelefoneCelular(const Value: string);
+    procedure SetTelefoneComercial(const Value: string);
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    property Nome: string read FNome write SetNome;
+    property CNPJ: string read FCNPJ write SetCNPJ;
+    property Inscricao: string read FInscricao write SetInscricao;
+    property TelefoneComercial: string read FTelefoneComercial write SetTelefoneComercial;
+    property TelefoneCelular: string read FTelefoneCelular write SetTelefoneCelular;
+    property Email: string read FEmail write SetEmail;
+  end;
+
+implementation
+
+{ TEmpresa }
+
+constructor TEmpresa.Create;
+begin
+
+end;
+
+destructor TEmpresa.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TEmpresa.SetCNPJ(const Value: string);
+begin
+  FCNPJ := Value;
+end;
+
+procedure TEmpresa.SetEmail(const Value: string);
+begin
+  FEmail := Value;
+end;
+
+procedure TEmpresa.SetInscricao(const Value: string);
+begin
+  FInscricao := Value;
+end;
+
+procedure TEmpresa.SetNome(const Value: string);
+begin
+  FNome := Trim(Value);
+end;
+
+procedure TEmpresa.SetTelefoneCelular(const Value: string);
+begin
+  FTelefoneCelular := Value;
+end;
+
+procedure TEmpresa.SetTelefoneComercial(const Value: string);
+begin
+  FTelefoneComercial := Value;
+end;
+
+end.

@@ -1,0 +1,56 @@
+unit uViewBancoDados;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfmBancoDados = class(TForm)
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    edtDriverID: TEdit;
+    Label2: TLabel;
+    odBanco: TOpenDialog;
+    edtCaminhoBancoDados: TEdit;
+    btnEncontrarDatabase: TButton;
+    Label3: TLabel;
+    edtUserName: TEdit;
+    Label4: TLabel;
+    edtPassword: TEdit;
+    procedure btnEncontrarDatabaseClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    constructor Create;
+  end;
+
+var
+  fmBancoDados: TfmBancoDados;
+
+implementation
+
+{$R *.dfm}
+
+{ TfmBancoDados }
+
+procedure TfmBancoDados.btnEncontrarDatabaseClick(Sender: TObject);
+begin
+  if Trim(edtCaminhoBancoDados.Text) <> EmptyStr then
+    odBanco.InitialDir := ExtractFilePath(edtCaminhoBancoDados.Text);
+
+  if odBanco.Execute then
+    edtCaminhoBancoDados.Text := odBanco.FileName;
+end;
+
+constructor TfmBancoDados.Create;
+begin
+  inherited Create(nil);
+  odBanco.InitialDir := GetCurrentDir;
+end;
+
+end.

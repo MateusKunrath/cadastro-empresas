@@ -1,0 +1,15 @@
+unit uCarteiraMotorista;
+
+interface
+
+type
+  TCarteiraMotorista = class
+  private
+  public
+    property Numero: string read FNumero write FNumero;
+    property DataValidade: TDate read FDataValidade write FDataValidade;
+  end;
+
+implementation
+
+end.

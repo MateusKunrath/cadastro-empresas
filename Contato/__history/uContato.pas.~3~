@@ -1,0 +1,17 @@
+unit uContato;
+
+interface
+
+type
+  TContato = class
+  private
+    FEmail: string;
+    FTelefoneCelular: string;
+  public
+    property TelefoneCelular: string read FTelefoneCelular write FTelefoneCelular;
+    property Email: string read FEmail write FEmail;
+  end;
+
+implementation
+
+end.

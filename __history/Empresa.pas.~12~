@@ -1,0 +1,84 @@
+unit Empresa;
+
+interface
+
+uses
+  System.SysUtils, Utils;
+
+type
+  TEmpresa = class
+  private
+    FNome: string;
+    FCNPJ: string;
+    FInscricao: string;
+    FTelefoneComercial: string;
+    FTelefoneCelular: string;
+    FEmail: string;
+  public
+    constructor Create;
+    destructor Destroy; override;
+
+    procedure Cadastrar;
+
+    function Nome(const Value: string): TEmpresa;
+    function CNPJ(const Value: string): TEmpresa;
+    function Inscricao(const Value: string): TEmpresa;
+    function TelefoneComercial(const Value: string): TEmpresa;
+    function TelefoneCelular(const Value: string): TEmpresa;
+    function Email(const Value: string): TEmpresa;
+  end;
+
+implementation
+
+{ TEmpresa }
+
+function TEmpresa.CNPJ(const Value: string): TEmpresa;
+begin
+  FCNPJ := Trim(Value);
+  Result := Self;
+end;
+
+constructor TEmpresa.Create;
+begin
+
+end;
+
+destructor TEmpresa.Destroy;
+begin
+
+  inherited;
+end;
+
+function TEmpresa.Email(const Value: string): TEmpresa;
+begin
+  if ValidarEmail(Value) then
+    FEmail := Trim(Value);
+
+  Result := Self;
+end;
+
+function TEmpresa.Inscricao(const Value: string): TEmpresa;
+begin
+  FInscricao := Trim(Value);
+  Result := Self;
+end;
+
+function TEmpresa.Nome(const Value: string): TEmpresa;
+begin
+  FNome := Trim(Value);
+  Result := Self;
+end;
+
+function TEmpresa.TelefoneCelular(const Value: string): TEmpresa;
+begin
+  FTelefoneCelular := Trim(Value);
+  Result := Self;
+end;
+
+function TEmpresa.TelefoneComercial(const Value: string): TEmpresa;
+begin
+  FTelefoneComercial := Trim(Value);
+  Result := Self;
+end;
+
+end.

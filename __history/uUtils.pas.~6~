@@ -1,0 +1,19 @@
+unit uUtils;
+
+interface
+
+function iff(Condicao: Boolean; RetornoVerdadeira: Variant; RetornoFalsa: Variant): Variant;
+
+implementation
+
+function iff(Condicao: Boolean; RetornoVerdadeira: Variant; RetornoFalsa: Variant): Variant;
+begin
+  if Condicao then
+    Result := RetornoVerdadeira
+  else
+    Result := RetornoFalsa;
+end;
+
+end.
+
+end.

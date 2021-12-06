@@ -1,0 +1,42 @@
+unit uUtils;
+
+interface
+
+uses
+  FireDAC.Comp.Client, System.SysUtils;
+
+function iff(Condicao: Boolean; RetornoVerdadeira: Variant; RetornoFalsa: Variant): Variant;
+function InstanciarFDQuery(Conexao: TFDConnection): TFDQuery;
+function ValidarEmail(aStr: string): Boolean;
+
+implementation
+
+function iff(Condicao: Boolean; RetornoVerdadeira: Variant; RetornoFalsa: Variant): Variant;
+begin
+  if Condicao then
+    Result := RetornoVerdadeira
+  else
+    Result := RetornoFalsa;
+end;
+
+function InstanciarFDQuery(Conexao: TFDConnection): TFDQuery;
+begin
+  Result := TFDQuery.Create(nil);
+  Result.Connection := Conexao;
+end;
+
+function ValidarEmail(aStr: string): Boolean;
+begin
+ aStr := Trim(UpperCase(aStr));
+ if Pos('@', aStr) > 1 then
+ begin
+   Delete(aStr, 1, pos('@', aStr));
+   Result := (Length(aStr) > 0) and (Pos('.', aStr) > 2);
+ end
+ else
+   Result := False;
+end;
+
+end.
+
+end.

@@ -1,0 +1,18 @@
+unit uContatoPessoaJuridica;
+
+interface
+
+uses
+  uContato;
+
+type
+  TContatoPessoaJuridica = class(TContato)
+  private
+    FTelefoneComercial: string;
+  public
+    property TelefoneComercial: string read FTelefoneComercial write FTelefoneComercial;
+  end;
+
+implementation
+
+end.

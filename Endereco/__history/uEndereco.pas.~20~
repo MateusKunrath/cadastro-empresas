@@ -1,0 +1,18 @@
+unit uEndereco;
+
+interface
+
+type
+  TEndereco = class
+  private
+    Nome: string;
+    Numero: string;
+    Bairro: string;
+    IdCidade: Integer;
+    IdUF: Integer;
+    CEP: string;
+  end;
+
+implementation
+
+end.

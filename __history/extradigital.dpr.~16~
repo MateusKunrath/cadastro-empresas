@@ -1,0 +1,31 @@
+program extradigital;
+
+uses
+  Vcl.Forms,
+  uFrmPrincipal in 'uFrmPrincipal.pas' {fmPrincipal},
+  uModelEmpresa in 'Model\uModelEmpresa.pas',
+  uValidador in 'Model\uValidador.pas',
+  uPersistir in 'Model\uPersistir.pas',
+  uDAOEmpresa in 'DAO\uDAOEmpresa.pas',
+  uDAOConexao in 'DAO\uDAOConexao.pas',
+  uControllerConexao in 'Controller\uControllerConexao.pas',
+  uModelConexao in 'Model\uModelConexao.pas',
+  uUtils in 'uUtils.pas',
+  uViewBancoDados in 'View\uViewBancoDados.pas' {fmBancoDados},
+  uViewEmpresas in 'View\uViewEmpresas.pas' {fmEmpresas},
+  uViewManutencaoEmpresa in 'View\uViewManutencaoEmpresa.pas' {fmManutencaoEmpresa},
+  uControllerEmpresa in 'Controller\uControllerEmpresa.pas',
+  uViewFuncionarios in 'View\uViewFuncionarios.pas' {fmFuncionarios},
+  uDataModule in 'uDataModule.pas' {dmDados: TDataModule},
+  uEmpresa in 'Empresa\uEmpresa.pas',
+  uEndereco in 'Endereco\uEndereco.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfmPrincipal, fmPrincipal);
+  Application.CreateForm(TdmDados, dmDados);
+  Application.Run;
+end.
